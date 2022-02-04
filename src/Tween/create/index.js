@@ -5,7 +5,7 @@ import refresh from 'Common/refresh';
 const create = (mode, opts = {}) => {
   const {
     target,
-    waypoints = [],
+    waypoints = [{ percent: 0, style: {} }, { percent: 1, style: {} }],
     margin = 0,
     stepFunction,
     applyStyles = true,

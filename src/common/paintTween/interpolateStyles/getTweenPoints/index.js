@@ -1,15 +1,17 @@
 const getTweenPoints = ({ waypoints, percentage }) => {
-  waypoints.sort((a, b) => a.percen - b.percent);
+  waypoints.sort((a, b) => a.percent - b.percent);
 
   let index;
-  waypoints.forEach((point, i) => {
+  waypoints.some((point, i) => {
     const nextPoint = waypoints[i + 1];
     if (!nextPoint) {
-      return;
+      return false;
     }
     if (percentage >= point.percent && percentage < nextPoint.percent) {
       index = i;
+      return true;
     }
+    return false;
   });
 
   if (index === undefined) {

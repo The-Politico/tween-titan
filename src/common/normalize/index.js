@@ -24,14 +24,14 @@ const normalizeWaypoints = (waypoints) => {
   if (normalizedWaypoints[0].percent !== 0) {
     normalizedWaypoints.unshift({
       percent: 0,
-      style: normalizedWaypoints[1].style,
+      style: normalizedWaypoints[0].style,
     });
   }
   const endIndex = normalizedWaypoints.length - 1;
   if (normalizedWaypoints[endIndex].percent !== 1) {
     normalizedWaypoints.push({
       percent: 1,
-      style: normalizedWaypoints[endIndex - 1].style,
+      style: normalizedWaypoints[endIndex].style,
     });
   }
 
