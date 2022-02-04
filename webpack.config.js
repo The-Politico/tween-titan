@@ -6,8 +6,14 @@ module.exports = {
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
-    libraryTarget: 'umd',
-    globalObject: 'this',
+    library: {
+      name: 'TweenTitan',
+      type: 'umd',
+    },
+  },
+  devServer: {
+    static: './',
+    open: ['/dev'],
   },
   resolve: {
     alias: {

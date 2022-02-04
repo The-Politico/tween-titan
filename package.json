@@ -5,6 +5,7 @@
   "main": "./dist/index.js",
   "scripts": {
     "build": "webpack",
+    "dev": "yarn build && webpack serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Andrew McGill",
@@ -15,7 +16,8 @@
     "eslint": "^7.17.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "webpack": "^5.12.1",
-    "webpack-cli": "^4.3.1"
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
     "d3-interpolate": "^3.0.1",
