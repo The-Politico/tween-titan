@@ -1,5 +1,4 @@
 import getPositions from 'Common/getPositions';
-import sortAsc from 'Common/sortAsc';
 import normalizeWaypoints from 'Common/normalize';
 
 const calculateWaypoints = (waypoints) => {
@@ -11,7 +10,7 @@ const calculateWaypoints = (waypoints) => {
     };
   });
 
-  pixelWaypoints.sort((a, b) => sortAsc({ a: a.yPos, b: b.yPos }));
+  pixelWaypoints.sort((a, b) => a.yPos - b.yPos);
   const firstYPos = pixelWaypoints[0].yPos;
   const lastYPos = pixelWaypoints[pixelWaypoints.length - 1].yPos;
 

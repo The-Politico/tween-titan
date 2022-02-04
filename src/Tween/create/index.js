@@ -20,11 +20,20 @@ const create = (mode, opts = {}) => {
     };
   }
 
-  const store = {
-    update(key, value) {
-      store[key] = value;
-    },
+  const store = {};
+  store.update = (key, value) => {
+    store[key] = value;
   };
+
+  store.resizeFunction = addResizeListener({
+    mode,
+    target,
+    waypoints,
+    margin,
+    stepFunction,
+    applyStyles,
+    store,
+  });
 
   const refreshTween = () => refresh({
     mode,
@@ -36,16 +45,6 @@ const create = (mode, opts = {}) => {
     applyStyles,
   });
   refreshTween();
-
-  store.resizeFunction = addResizeListener({
-    mode,
-    target,
-    waypoints,
-    margin,
-    stepFunction,
-    applyStyles,
-    store,
-  });
 
   return {
     target,

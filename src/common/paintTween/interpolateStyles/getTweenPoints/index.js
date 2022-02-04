@@ -1,7 +1,5 @@
-import sortAsc from 'Common/sortAsc';
-
 const getTweenPoints = ({ waypoints, percentage }) => {
-  waypoints.sort((a, b) => sortAsc({ a: a.percent, b: b.percent }));
+  waypoints.sort((a, b) => a.percen - b.percent);
 
   let index;
   waypoints.forEach((point, i) => {
