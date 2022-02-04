@@ -10,8 +10,7 @@ const interpolateStyles = ({ waypoints, percentage }) => {
     percentage,
   });
 
-  const results = interpolator(relativePercent);
-  return results;
+  return interpolator(relativePercent);
 };
 
 export default interpolateStyles;
