@@ -12,7 +12,7 @@ const getTweenPoints = ({ waypoints, percentage }) => {
     }
   });
 
-  if (index == null) {
+  if (index === undefined) {
     index = waypoints.length - 2;
   }
 
