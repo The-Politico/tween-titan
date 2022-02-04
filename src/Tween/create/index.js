@@ -22,7 +22,7 @@ const create = (mode, opts = {}) => {
 
   const store = {
     update(key, value) {
-      this[key] = value;
+      store[key] = value;
     },
   };
 
@@ -43,6 +43,7 @@ const create = (mode, opts = {}) => {
     waypoints,
     margin,
     stepFunction,
+    applyStyles,
     store,
   });
 
