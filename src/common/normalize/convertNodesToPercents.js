@@ -22,9 +22,7 @@ const calculateWaypoints = (waypoints) => {
     };
   });
 
-  const normalizedWaypoints = normalizeWaypoints(percentWaypoints);
-
-  return normalizedWaypoints;
+  return normalizeWaypoints(percentWaypoints);
 };
 
 export default calculateWaypoints;
