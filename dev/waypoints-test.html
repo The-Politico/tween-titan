@@ -1,0 +1,72 @@
+<html>
+<head>
+  <style>
+    .waypoint#a {
+      margin-top: 150vh;
+      height: 100vw;
+      background-color: red;
+    }
+    .waypoint#b {
+      height: 0px;
+      padding-bottom: 56%;
+      background-color: green;
+    }
+    .waypoint#c {
+      height: 100vh;
+      background-color: yellow;
+    }
+
+    .ball {
+      position: fixed;
+      top: 10%;
+      right: 10%;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: black;
+    }
+  </style>
+
+</head>
+<body>
+  <div class="ball"></div>
+  <div class='waypoint' id='a'></div>
+  <div class='waypoint' id='b'></div>
+  <div class='waypoint' id='c'></div>
+</body>
+
+<script src="../dist/index.js"></script>
+<script type="text/javascript">
+  const { TweenWaypoints } = TweenTitan;
+
+  const waypointA = document.querySelector('#a');
+  const waypointB = document.querySelector('#b');
+  const waypointC = document.querySelector('#c');
+  const ball = document.querySelector('.ball');
+
+  const tween = TweenWaypoints.create({
+    target: ball,
+    margin: window.innerHeight / 2,
+    waypoints: [
+      {
+        elem: waypointA,
+        style: {
+          right: 'calc(0% - 0px)',
+        }
+      },
+      {
+        elem: waypointB,
+        style: {
+          right: 'calc(100% - 50px)'
+        }
+      },
+      {
+        elem: waypointC,
+        style: {
+          right: 'calc(0% - 0px)'
+        }
+      }
+    ]
+  })
+</script>
+</html>

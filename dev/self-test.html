@@ -1,0 +1,75 @@
+<html>
+<head>
+  <style>
+    .canvas {
+      width: 90vw;
+      height: 90vh;
+      margin: 100vh 5vh;
+      background-color: #f1f1f1;
+      position: relative;
+      top: 5vh;
+    }
+
+    .runway {
+      height: 200vh;
+    }
+
+    .dot {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+  </style>
+
+</head>
+<body>
+  <div class='runway'>
+    <div class='canvas'></div>
+  </div>
+</body>
+
+<script src="../dist/index.js"></script>
+<script type="text/javascript">
+  const { TweenSelf } = TweenTitan;
+  const canvas = document.querySelector('.canvas');
+  const colors = [
+    'red', 'seagreen', 'blue', 'purple', 'yellow'
+  ]
+  for (let i=0; i<100; i++) {
+    const circle = document.createElement('div');
+    circle.classList.add('dot');
+    circle.style.left = `${(Math.random() * 80 + 10)}%`
+    circle.style.top = `${(Math.random() * 80 + 10)}%`
+    circle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]
+
+    canvas.append(circle);
+
+    const tween = TweenSelf.create({
+      target: circle,
+      margin: {
+        top: 0,
+        bottom: 500
+      },
+      waypoints: [
+        {
+          percent: 0,
+          style: {
+            left: circle.style.left,
+            top: circle.style.top,
+            backgroundColor: circle.style.backgroundColor
+          }
+        },
+        {
+          percent: 1,
+          style: {
+            left: `${(Math.random() * 80 + 10)}%`,
+            top: `${(Math.random() * 80 + 10)}%`,
+            backgroundColor: colors[Math.floor(Math.random() * colors.length)]
+          }
+        }
+      ]
+    })
+  }
+</script>
+</html>
