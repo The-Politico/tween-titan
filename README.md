@@ -30,7 +30,7 @@ Returns a `Tween` object.
 * `target` (HTMLElement) (**required**): The thing you want to tween
 * `margin` (Object):
   * `top` (number): Add (or subtract) pixels to the top of the scrollable viewport.
-  * `bottom` (number): Add (or subtract) pixels to the top of the scrollable viewport.
+  * `bottom` (number): Add (or subtract) pixels to the bottom of the scrollable viewport.
 * `waypoints` (Array of `waypoint` objects):
   * `percent` (number): The percentage in the scroll experience where the styles should be fully transitioned.
   * `style`: (Object): A set of CSS properties in Javascript style indicating what the element should look like.
