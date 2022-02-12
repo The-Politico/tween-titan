@@ -1,4 +1,4 @@
-import { throttle } from 'lodash';
+import throttle from 'lodash.throttle';
 import SCROLL_THROTTLE_THRESHOLD from 'Constants/main';
 import getPositions from 'Common/getPositions';
 import paintTween from 'Common/paintTween';

@@ -1,4 +1,4 @@
-import { throttle } from 'lodash';
+import throttle from 'lodash.throttle';
 import RESIZE_THROTTLE_THRESHOLD from 'Constants/main';
 import refresh from 'Common/refresh';
 
