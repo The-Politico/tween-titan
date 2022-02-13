@@ -1,6 +1,6 @@
 {
   "name": "tween-titan",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A front-end library that makes it easy to transition an element on your website from one style to another when the user scrolls.",
   "main": "./dist/index.js",
   "scripts": {
