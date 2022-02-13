@@ -3,6 +3,9 @@ const common = require('./webpack.common.js');
 
 const dev = merge(common, {
   mode: 'development',
+  output: {
+    filename: 'tween-titan.development.js',
+  },
   devServer: {
     static: './',
     open: ['/dev'],
