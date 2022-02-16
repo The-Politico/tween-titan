@@ -3,8 +3,10 @@
 
 See the fuller, flashier explanation at [tween-titan.app](https://tween-titan.app).
 
+If you're using React, we've also built a library called [react-tween-titan](https://github.com/the-politico/react-tween-titan/).
+
 ## Usage
-Tween-titan can be imported as an ESM module:
+Tween-titan can be imported as a module:
 
 ```
 import { TweenSelf, TweenWaypoints } from 'tween-titan';
@@ -13,7 +15,7 @@ import { TweenSelf, TweenWaypoints } from 'tween-titan';
 Or it can be used on an HTML page as a script.
 
 ```
-<script src="https://TKTKTKTK/tween-titan.js"></script>
+<script src="http://unpkg.com/tween-titan"></script>
 <script type="text/javascript">
   const { TweenSelf, TweenWaypoints } = TweenTitan;
   ...
@@ -57,8 +59,8 @@ Returns a `Tween` object.
 ## Examples
 
 ### A simple spinning square
-As you scroll down the page, a red square spins.
-#### index.html
+As you scroll down the page, a red square spins. ([Codepen](https://codepen.io/arm5077/pen/oNooLQY?editors=1111))
+
 ```
 <html>
   <style type='text/css'>
@@ -67,6 +69,7 @@ As you scroll down the page, a red square spins.
     }
 
     .square {
+      margin-top: 100vh;
       width: 50px;
       height: 50px;
       background-color: red;
@@ -74,39 +77,34 @@ As you scroll down the page, a red square spins.
   </style>
   <body>
     <div class='runway'>
-      <div class='square></div>
+      <div class='square'></div>
     </div>
   </body>
-  <script src="https://TKTKTKTK/tween-titan.js"></script>
-  <script src="scripts.js"></script>
+  <script src="http://unpkg.com/tween-titan"></script>
+  <script type="text/javascript">
+    const { TweenSelf } = TweenTitan;
+
+    const target = document.querySelector('.square');
+    const tween = TweenSelf.create({
+      target,
+      waypoints: [
+        {
+          percent: 0,
+          style: { transform: 'rotate(0deg)' }
+        },
+        {
+          percent: 1,
+          style: { transform: 'rotate(360deg)' }
+        }
+      ],
+    });
+  </script>
 </html>
 ```
 
-#### scripts.js
-```
-const { TweenSelf } = TweenTitan;
-
-const target = document.querySelector('.square');
-const tween = TweenSelf({
-  target,
-  waypoints: [
-    {
-      percent: 0,
-      style: { transform: 'rotate(0deg)' }
-    },
-    {
-      percent: 1,
-      style: { transform: 'rotate(360deg)' }
-    }
-  ],
-});
-
-```
-
 ### Same square, but keyed to waypoints
-The red square, now stuck in the center of your screen, spins in different directions depending on which waypoint you've run through.
+The red square, now stuck in the center of your screen, spins in different directions depending on which waypoint you've run through. ([Codepen](https://codepen.io/arm5077/pen/wvPPWRx?editors=1111))
 
-#### index.html
 ```
 <html>
   <style type='text/css'>
@@ -116,6 +114,8 @@ The red square, now stuck in the center of your screen, spins in different direc
 
     .waypoint {
       margin-top: 100vh;
+      width: 100%;
+      border-top: 1px dashed black;
     }
 
     .square {
@@ -123,46 +123,43 @@ The red square, now stuck in the center of your screen, spins in different direc
       height: 50px;
       position: fixed;
       top: calc(50vh - 25px);
-      left: calc(50vh - 25px);
+      left: calc(50vw - 25px);
+      background: red;
     }
   </style>
   <body>
     <div class='runway'>
-      <div class='square></div>
+      <div class='square'></div>
       <div class='waypoint' id='waypoint-1'></div>
       <div class='waypoint' id='waypoint-2'></div>
       <div class='waypoint' id='waypoint-3'></div>
     </div>
   </body>
-  <script src="https://TKTKTKTK/tween-titan.js"></script>
-  <script src="scripts.js"></script>
+  <script src="http://unpkg.com/tween-titan"></script>
+  <script type="text/javascript">
+    const { TweenWaypoints } = TweenTitan;
+
+    const target = document.querySelector('.square');
+    const waypoint1 = document.querySelector('#waypoint-1');
+    const waypoint2 = document.querySelector('#waypoint-2');
+    const waypoint3 = document.querySelector('#waypoint-3');
+    const tween = TweenWaypoints.create({
+      target,
+      waypoints: [
+        {
+          elem: waypoint1,
+          style: { transform: 'rotate(0deg)' }
+        },
+        {
+          elem: waypoint2,
+          style: { transform: 'rotate(360deg)' }
+        },
+        {
+          elem: waypoint3,
+          style: { transform: 'rotate(0deg)' }
+        },
+      ],
+    });
+  </script>
 </html>
-```
-
-#### scripts.js
-```
-const { TweenWaypoints } = TweenTitan;
-
-const target = document.querySelector('.square');
-const waypoint1 = document.querySelector('#waypoint-1');
-const waypoint2 = document.querySelector('#waypoint-2');
-const waypoint3 = document.querySelector('#waypoint-3');
-const tween = TweenWaypoints({
-  target,
-  waypoints: [
-    {
-      elem: waypoint1,
-      style: { transform: 'rotate(0deg)' }
-    },
-    {
-      elem: waypoint2,
-      style: { transform: 'rotate(360deg)' }
-    },
-    {
-      elem: waypoint3,
-      style: { transform: 'rotate(0deg)' }
-    },
-  ],
-});
-
 ```
