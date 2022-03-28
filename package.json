@@ -1,6 +1,6 @@
 {
   "name": "tween-titan",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A small-but-mighty library for tweening styles (and more!) on scroll.",
   "main": "./dist/tween-titan.production.js",
   "scripts": {
