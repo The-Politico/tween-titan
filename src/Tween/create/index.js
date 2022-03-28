@@ -9,11 +9,13 @@ const create = (mode, opts = {}) => {
     margin = 0,
     stepFunction,
     applyStyles = true,
+    refreshInterval = 0,
   } = opts;
 
   if (!target || waypoints.length === 0) {
     return {
       destroy: () => {},
+      interval: null,
       store: {
         style: {},
       },
@@ -46,11 +48,16 @@ const create = (mode, opts = {}) => {
   });
   refreshTween();
 
+  if (refreshInterval > 0) {
+    store.interval = setInterval(refreshTween, refreshInterval);
+  }
+
   return {
     target,
     destroy: () => {
       removeListener('scroll', store.scrollFunction);
       removeListener('resize', store.resizeFunction);
+      clearInterval(store.interval);
     },
     store,
     refresh: refreshTween,

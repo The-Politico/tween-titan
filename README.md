@@ -37,6 +37,7 @@ Returns a `Tween` object.
   * `percent` (number): The percentage in the scroll experience where the styles should be fully transitioned.
   * `style`: (Object): A set of CSS properties in Javascript style indicating what the element should look like.
 * `stepFunction` (function(percent, style, target)): A function that executes every time the tween updates.
+* `refreshInterval` (number): If set, refreshes the tween at the requested interval in milliseconds. (This is useful if you're expecting layout changes on the page that could shift the tween.) Defaults to null.
 
 ### TweenWaypoints({ options })
 Tweens an element based on the position of separate waypoint elements relative to the viewport.
@@ -50,6 +51,7 @@ Returns a `Tween` object.
   * `elem` (HTMLElement): The waypoint element
   * `style`: (Object): A set of CSS properties in Javascript style indicating what the element should look like.
 * `stepFunction` (function(percent, style, target)): A function that executes every time the tween updates.
+* `refreshInterval` (number): If set, refreshes the tween at the requested interval in milliseconds. (This is useful if you're expecting layout changes on the page that could shift the tween.) Defaults to null.
 
 ### The `Tween` object
 #### Methods

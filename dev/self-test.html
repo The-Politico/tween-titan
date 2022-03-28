@@ -47,6 +47,7 @@
 
     const tween = TweenSelf.create({
       target: circle,
+      refreshInterval: 1000,
       margin: {
         top: 0,
         bottom: 500
@@ -56,7 +57,7 @@
           percent: 0,
           style: {
             left: circle.style.left,
-            top: circle.style.top,
+            transform: 'translate(0px, 0px)',
             backgroundColor: circle.style.backgroundColor
           }
         },
@@ -64,7 +65,7 @@
           percent: 1,
           style: {
             left: `${(Math.random() * 80 + 10)}%`,
-            top: `${(Math.random() * 80 + 10)}%`,
+            transform: `translate(0px, ${(((Math.random() * 2) - 1) * 80 + 10)}px)`,
             backgroundColor: colors[Math.floor(Math.random() * colors.length)]
           }
         }
